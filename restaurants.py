@@ -2,7 +2,7 @@ import geopy.distance as gd  # used to calculate distances in a coordinate syste
 from datetime import datetime, timedelta  # import datetime and timedelta for comparison of dates
 
 
-class restaurants:
+class Restaurants:
     """a class to use on returning restaurants according to coordinates and given data,
      with the restaurant being within distance specified(default 1.5km)"""
     def __init__(self, customer_coords, restaurants_list, distance=1.5):

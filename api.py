@@ -28,7 +28,7 @@ def discovery():
         return
 
     # use the restaurants class for actual handling of data, pass it the restaurants available and coordinates
-    restaurants = rt.restaurants((longitude, latitude), data)
+    restaurants = rt.Restaurants((longitude, latitude), data)
 
     # finally change to proper format using jsonify
     return jsonify(restaurants.sections())
