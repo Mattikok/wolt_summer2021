@@ -3,8 +3,8 @@ from datetime import datetime, timedelta  # import datetime and timedelta for co
 
 
 class Restaurants:
-    """a class to use on returning restaurants according to coordinates and given data,
-     with the restaurant being within distance specified(default 1.5km)"""
+    """a class that takes coordinates and restaurants to create different lists based on what is required,
+    for example sorted by popularity and how close etc."""
     def __init__(self, customer_coords, restaurants_list, distance=1.5):
         self.coords = customer_coords
         self.data = restaurants_list
