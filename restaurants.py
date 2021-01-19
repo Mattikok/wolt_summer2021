@@ -4,11 +4,12 @@ from datetime import datetime, timedelta  # import datetime and timedelta for co
 
 class restaurants:
     """a class to use on returning restaurants according to coordinates and given data,
-     with the restaurant being within distance specified"""
+     with the restaurant being within distance specified(default 1.5km)"""
     def __init__(self, customer_coords, restaurants_list, distance=1.5):
         self.coords = customer_coords
         self.data = restaurants_list
-        self.valid_restaurants = self.proper_location(distance)  # restaurants that are in the range of 1.5km as required
+        self.valid_restaurants = self.proper_location(distance)
+        # restaurants that are in the range of distance specified
 
     def proper_location(self, distance):
         """return restaurants within the 1.5km radius using

@@ -5,7 +5,7 @@ import restaurants as rt
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True  # set to debug mode
-app.config['JSON_SORT_KEYS'] = False
+app.config['JSON_SORT_KEYS'] = False  # set to not sort dictionarys within JSON since it would mess up the order
 
 with open('restaurants.json', 'r') as file:  # use the data from the file,
     # easy enough to change to use a server for example
