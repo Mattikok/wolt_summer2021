@@ -9,9 +9,8 @@ app.config['JSON_SORT_KEYS'] = False  # set to not sort dictionarys with jsonify
 # since it would mess up the order defined in restaurants.py
 
 data = data.restaurant_json_data()  # get data to use
-
-
 # required data loaded, configure api next
+
 
 @app.route('/discovery', methods=['GET'])
 def discovery():
@@ -21,6 +20,9 @@ def discovery():
             latitude = float(request.args['lat'])
             longitude = float(request.args['lon'])
         except ValueError:
+            abort(400, description='Check latitude and longitude')
+            return
+        if not -90 < latitude < 90 and -180 < longitude < 180:  # check that latitude and longitude are correct values
             abort(400, description='Check latitude and longitude')
             return
     else:  # abort if not specified
