@@ -25,7 +25,7 @@ class restaurants:
                       reverse=True)
 
     def new_restaurants(self):
-        """return new restaurants in the area, sorted by launch-date ascending order"""
+        """return new restaurants in the area, online first, sorted by launch-date ascending order"""
         # pick restaurants that are atleast 4 months or younger
         now = datetime.now()
         early_sort = [restaurant for restaurant in self.valid_restaurants if
@@ -37,7 +37,7 @@ class restaurants:
                        datetime.strptime(restaurant['launch_date'], '%Y-%m-%d')))
 
     def nearby_restaurants(self):
-        """return nearby restaurants in the area, sorted by most nearby"""
+        """return nearby restaurants, online first, then nearest in ascending order"""
         return sorted(self.valid_restaurants,
                       key=lambda restaurant:
                       (not restaurant['online'],
@@ -45,7 +45,7 @@ class restaurants:
 
     def sections(self, amount=10):
         """returns a list of popular, new, and nearby restaurants according to the customers coordinates,
-        specify max per list, variable amount"""
+        can specify max per list, default = 10"""
         sections = []
         popular = self.popular_restaurants()[:amount]
         if len(popular) != 0:
