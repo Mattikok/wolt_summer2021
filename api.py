@@ -2,21 +2,21 @@ import flask  # create a simple discovery Api using Flask for python
 import json  # json to load the data file to memory
 from flask import abort, jsonify, request  # imports to use
 import restaurants as rt  # import helper class
+import data  # import data
 
 app = flask.Flask('WoltSummerJob')  # set name to be package name for easier debugging
 app.config['DEBUG'] = True  # set to debug mode for better developing
 app.config['JSON_SORT_KEYS'] = False  # set to not sort dictionarys with jsonify
 # since it would mess up the order defined in restaurants.py
 
-with open('restaurants.json', 'r') as file:  # use the data from the file,
-    # easy enough to change to use a server for example
-    data = json.load(file)['restaurants']  # use the restaurants key to get the list
+data = data.restaurant_json_data()  # get data to use
 
 
 # required data loaded, configure api next
 
 @app.route('/discovery', methods=['GET'])
 def discovery():
+    """define the discovery api endpoint using the restaurants.py helper class"""
     if 'lat' and 'lon' in request.args:  # check that latitude and longitude are given
         try:
             latitude = float(request.args['lat'])
