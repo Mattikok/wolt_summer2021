@@ -1,4 +1,4 @@
-import json
+import json  # to load the json file easily
 
 
 def restaurant_json_data():
