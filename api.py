@@ -1,5 +1,4 @@
 import flask  # create a simple discovery Api using Flask for python
-import json  # json to load the data file to memory
 from flask import abort, jsonify, request  # imports to use
 import restaurants as rt  # import helper class
 import data  # import data
