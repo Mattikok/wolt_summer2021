@@ -5,4 +5,5 @@ Standalone simple API to serve back restaurants according to the longitude and l
 Example restaurants taken from the https://github.com/woltapp/summer2021-internship data
 
 To get it to run install Flask and geopy on your python 3.8, then run api.py
+
 Make sure to be on python 3.8.5, might work on other versions as well.
